@@ -3,6 +3,8 @@ let resetBtn=document.querySelector("#New-Game");
 let msgContainer=document.querySelector(".msg-container");
 let msg =document.querySelector("#msg")
 
+
+
 let turnO= true;   //player//
 let count=0;
 
@@ -104,10 +106,25 @@ boxes.forEach((box)=>{
  //function to show thw winner//
  const showWinner=(winner)=>{
      msg.innerText=`Congratulations,Winner is ${winner}`
+    
      disableBoxes()
+     
+    
 
  }
 
+ //////fireeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+ const fireConfetti = () => {
+    var confettiSettings = {
+        spread: 2000,
+        startVelocity: 55,
+        ticks: 150,
+        zIndex: 2000,
+        particleCount: 200 
+    };
+    confetti(confettiSettings);
+};
 
 //checkwinner at every click//
 const checkWinner=()=>{
@@ -123,6 +140,14 @@ const checkWinner=()=>{
                 boxes[pattern[2]].classList.add("winner") 
                 
                 showWinner(pos1val);
+                ////this is the giff ////////////////////////
+                // confetti();
+                fireConfetti();
+            
+            
+
+                
+
                 return true;
             }
             
@@ -133,5 +158,6 @@ const checkWinner=()=>{
     }
   
 }
+
 //reset the game using New Game button//
 resetBtn.addEventListener("click",NewGame)
