@@ -4,8 +4,9 @@ let resetBtn = document.querySelector("#New-Game");
 let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
 
-// Audio element
+// Audio elements
 const winSound = new Audio('images/congratulation_audio.mp3'); // Replace with the path to your winner sound file
+const clickSound = new Audio('images/Click_audio.wav'); // Replace with the path to your click sound file
 
 let turnO = true;   // Player turn
 let count = 0;
@@ -54,6 +55,7 @@ const showTurn = () => {
 // Adding functionality to the boxes on click and checking the winner at every step
 boxes.forEach((box) => {
     box.addEventListener('click', () => {
+        clickSound.play(); // Play click sound on box click
         if (turnO) {
             showTurn();
             box.innerText = "O";
@@ -136,3 +138,4 @@ const checkWinner = () => {
 
 // Reset the game using New Game button
 resetBtn.addEventListener("click", NewGame);
+
